@@ -6807,7 +6807,7 @@
       .pagination {
       
         justify-content: center;
-          margin: 0 20% 0 0;
+          margin: 0 0 0 0;
       
       }
 
@@ -6815,19 +6815,22 @@
     margin-top: 5px;
     font-size: 24px;
     line-height: 32px;
-    width: 80%;
+    width: 100%;
     text-align: center;
 }
+
+
 
       
       @media (min-width: 601px) and (max-width: 1024px) {
         .content-wrapper, .footer-1440-pixels, .narrow-wrapper-posts {
           padding: 0 40px;
+          width: 60%;
         }
       
         .hero-polaroid, .polaroid-preview img {
-          width: 50%;
-          max-width: 50%;
+          width: 60%;
+          max-width: 60%;
           height: auto;
         }
       
@@ -6837,12 +6840,12 @@
         }
       
         .underline-link.w-inline-block {
-          width: 50%;
+          width: 60%;
           height: auto;
         }
 
         .blog-right {
-          width: 50%;
+          width: 60%;
           height: auto;
         }
 
@@ -6863,29 +6866,28 @@
           display: flex;
           justify-content: center;
           /* decrease the width */
-          width: 50%;
+          width: 60%;
 
         }
 
         .expand-right {
-          width: 50%;
+          width: 60%;
           height: auto;
-          /* make it relative position and bring to the center */
-          position: relative;
-          left: 50%;
-          transform: translateX(-50%);
+    
 
         }
+
 
         .w-dyn-items {
-          width: 50%;
+             width: 60%;
           height: auto;
-          /* make it relative position and bring to the center */
-          position: relative;
-          left: 50%;
-          transform: translateX(-50%);
+      
 
         }
+
+        
+
+        
       
       
       }
@@ -6961,11 +6963,17 @@
           <style>
            @media (max-width: 767px) { 
             .narrow-wrapper-posts {
-              margin-top: 40%;
+              margin-top: 60%;
             }
 
             .flex {
               margin-top: 20px;
+            }
+
+            .flex-center {
+              display: flex;
+              justify-content: center;
+              width: 100%;
             }
            }
 
@@ -7017,13 +7025,13 @@
                             <a
                               href="#"
                               data-w-id="a5841f31-ee0e-c8a2-62d8-0c7e43beeca5"
-                              class="underline-link w-inline-block"
+                            
                             >
                               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt fuga quod, repellat adipisci sequi architecto ex iusto porro hic doloremque veniam voluptatum deserunt placeat aliquam nesciunt blanditiis non necessitatibus dolores.</p>
 
                               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt fuga quod, repellat adipisci sequi architecto ex iusto porro hic doloremque veniam voluptatum deserunt placeat aliquam nesciunt blanditiis non necessitatibus dolores.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt fuga quod, repellat adipisci sequi architecto ex iusto porro hic doloremque veniam voluptatum deserunt placeat aliquam nesciunt blanditiis non necessitatibus dolores.</p>
 
-                              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt fuga quod, repellat adipisci sequi architecto ex iusto porro hic doloremque veniam voluptatum deserunt placeat aliquam nesciunt blanditiis non necessitatibus dolores.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt fuga quod, repellat adipisci sequi architecto ex iusto porro hic doloremque veniam voluptatum deserunt placeat aliquam nesciunt blanditiis non necessitatibus dolores.</p>
+
                               <div>Read more</div>
                               <div
                                 data-w-id="a5841f31-ee0e-c8a2-62d8-0c7e43beeca8"
@@ -7035,9 +7043,9 @@
                       </div>
                     </div>
                   </div>
-                  <div class="empty-state w-dyn-empty">
+                  <!-- <div class="empty-state w-dyn-empty">
                     <div>No items found.</div>
-                  </div>
+                  </div> -->
                   <div
                     role="navigation"
                     aria-label="List"
