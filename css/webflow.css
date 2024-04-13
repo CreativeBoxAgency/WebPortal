@@ -61,6 +61,7 @@ img {
 }
 html.w-mod-touch * {
   background-attachment: scroll !important;
+  border-radius: 20px;
 }
 .w-block {
   display: block;
