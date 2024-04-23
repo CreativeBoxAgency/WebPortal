@@ -17,7 +17,7 @@ function fetchBlogData(url, callback) {
   let blogLinks = [];
   
   // Initial fetch of blog data
-  fetchBlogData("https://blog-scraper-59ac02e724dd.herokuapp.com/blog/get-links", function(data) {
+  fetchBlogData("https://blog-scraper-59ac02e724dd.herokuapp.com/", function(data) {
     blogLinks = data;
     if (blogLinks.length > 0) {
       updateBlogUI(blogLinks[currentIndex]);

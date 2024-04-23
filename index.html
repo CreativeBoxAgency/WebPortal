@@ -13091,7 +13091,7 @@ CreativeBox is a creative agency that helps you design and launch your next proj
     <script src="js/webflow.js" type="text/javascript"></script>
     <script>
       $(document).ready(function() {
-    $.get("https://blog-scraper-59ac02e724dd.herokuapp.com/blog/get-links", function(data) {
+    $.get("https://blog-scraper-59ac02e724dd.herokuapp.com/", function(data) {
         if (data.length > 0) {
             // Dynamically update the first blog post if it exists
             updateBlogPost(data[0], $('.w-dyn-items .item-preview').eq(0));
