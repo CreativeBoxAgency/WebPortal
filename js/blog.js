@@ -5,9 +5,9 @@ function truncateTitle(sentence) {
   let words = normalizedSentence.split(" ");
   
   // Modify sentence if word count exceeds 9
-  if (words.length > 9) {
-      words = words.slice(0, 9);  // Keep only the first 9 words
-      words[8] += "...";  // Append '...' to the ninth word
+  if (words.length > 8) {
+      words = words.slice(0, 8);  // Keep only the first 9 words
+      words[7] += "...";  // Append '...' to the ninth word
   }
 
   return words.join(" ");  // Join the words back into a modified sentence
