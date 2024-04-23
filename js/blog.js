@@ -1,13 +1,9 @@
 // Function to truncate text after the ninth word and append ellipsis
 function truncateTitle(sentence) {
-  let words = sentence.split(" ");
-  let characterCount = 0;  // Initialize character count
-
-  // Count characters excluding spaces
-  words.forEach(word => {
-      characterCount += word.length;
-  });
-
+  // Replace non-breaking spaces with regular spaces
+  let normalizedSentence = sentence.replace(/&nbsp;/gi, ' ');
+  let words = normalizedSentence.split(" ");
+  
   // Modify sentence if word count exceeds 9
   if (words.length > 9) {
       words = words.slice(0, 9);  // Keep only the first 9 words
