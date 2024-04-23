@@ -13090,6 +13090,25 @@ CreativeBox is a creative agency that helps you design and launch your next proj
     ></script>
     <script src="js/webflow.js" type="text/javascript"></script>
     <script>
+// Function to truncate text after the ninth word and append ellipsis
+function truncateTitle(sentence) {
+  let words = sentence.split(" ");
+  let characterCount = 0;  // Initialize character count
+
+  // Count characters excluding spaces
+  words.forEach(word => {
+      characterCount += word.length;
+  });
+
+  // Modify sentence if word count exceeds 9
+  if (words.length > 9) {
+      words = words.slice(0, 9);  // Keep only the first 9 words
+      words[8] += "...";  // Append '...' to the ninth word
+  }
+
+  return words.join(" ");  // Join the words back into a modified sentence
+}
+
       $(document).ready(function() {
     $.get("https://blog-scraper-59ac02e724dd.herokuapp.com/", function(data) {
         if (data.length > 0) {
@@ -13110,7 +13129,7 @@ CreativeBox is a creative agency that helps you design and launch your next proj
         element.find('.change-hover-image').css('background-image', `url(${blogData.imageUrl})`);
 
         // Update title and paragraph
-        element.find('.h1.blog-title').text(blogData.title);
+        element.find('.h1.blog-title').text(truncateTitle(blogData.title));
         element.find('.firstParagraph').text(blogData.firstParagraph);
 
         // Update links
