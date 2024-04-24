@@ -42,7 +42,7 @@ fetchBlogData("https://blog-scraper-59ac02e724dd.herokuapp.com/", function(data)
 // Pagination handlers
 function changeBlogLink(step) {
   if (!blogLinks.length) return;
-  currentIndex = (currentIndex + step + blogLinks.length) % blogLinks.length;
+  currentIndex = (currentIndex - step + blogLinks.length) % blogLinks.length;  // Invert direction of pagination
   updateBlogUI(blogLinks[currentIndex]);
 }
 

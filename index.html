@@ -13105,8 +13105,11 @@ function truncateTitle(sentence) {
     return words.join(" ");  // Join the words back into a modified sentence
 }
 
-      $(document).ready(function() {
+$(document).ready(function() {
     $.get("https://blog-scraper-59ac02e724dd.herokuapp.com/", function(data) {
+        // Reverse the data array if newest posts are not already first
+        data.reverse();
+
         if (data.length > 0) {
             // Dynamically update the first blog post if it exists
             updateBlogPost(data[0], $('.w-dyn-items .item-preview').eq(0));
