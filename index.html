@@ -25571,8 +25571,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <a href="#" class="category-link"></a>
                   </div> -->
                   <div class="blog-preview-right">
-                    <p style="width: 100%; 
-                    margin: 2% 0px 2% 0px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat architecto quidem corrupti ad, rerum praesentium atque aspernatur esse laudantium accusantium officia pariatur sequi voluptas ducimus dicta distinctio qui repellat corporis.</p>
+                    <h1 class="h1 blog-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
                     <a href="#" class="preview-link"></a>
                     <div class="paragraph-box _5-pixels">
                       <p class="answer less-margin"></p>
@@ -25581,10 +25580,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         data-w-id="b040e40f-7e12-d869-7d25-778e46aeb264"
                         class="link-underline-menu w-inline-block"
                       >
-                      <p style="width: 100%; 
+                      <p class="firstParagraph" style="width: 100%; 
                       margin: 2% 0px 2% 0px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat architecto quidem corrupti ad, rerum praesentium atque aspernatur esse laudantium accusantium officia pariatur sequi voluptas ducimus dicta distinctio qui repellat corporis.</p>
+                         <a
+                         href="#"
+                         data-w-id="a5841f31-ee0e-c8a2-62d8-0c7e43beeca5"
+                         class="category-link"
+                       
+                       >
                         <div style="
-                        margin: 5% 0px 0px 0px;">Read more</div>
+                        margin: 5% 0px 0px 0px;">Read more</div></a>
                         <div style="width: 0px" class="footer-underline"></div>
                       </a>
                     </div>
@@ -25606,17 +25611,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     <a href="#" class="category-link"></a>
                   </div> -->
                   <div class="blog-preview-right">
-                    <p style="width: 100%; 
-                    margin: 2% 0px 2% 0px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat architecto quidem corrupti ad, rerum praesentium atque aspernatur esse laudantium accusantium officia pariatur sequi voluptas ducimus dicta distinctio qui repellat corporis.</p>
+                    <h1 class="h1 blog-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
                     <a href="#" class="preview-link"></a>
                     <div class="paragraph-box _5-pixels">
                       <p class="answer less-margin"></p>
-                      <a href="#" data-w-id="b040e40f-7e12-d869-7d25-778e46aeb264" class="link-underline-menu w-inline-block">
-                      <p style="width: 100%; 
+                      <a
+                        href="#"
+                        data-w-id="b040e40f-7e12-d869-7d25-778e46aeb264"
+                        class="link-underline-menu w-inline-block"
+                      >
+                      <p class="firstParagraph" style="width: 100%; 
                       margin: 2% 0px 2% 0px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat architecto quidem corrupti ad, rerum praesentium atque aspernatur esse laudantium accusantium officia pariatur sequi voluptas ducimus dicta distinctio qui repellat corporis.</p>
+                         <a
+                         href="#"
+                         data-w-id="a5841f31-ee0e-c8a2-62d8-0c7e43beeca5"
+                         class="category-link"
+                       
+                       >
                         <div style="
-                        margin: 5% 0px 0px 0px;">Read more</div>
-                        <div style="width: 0px;" class="footer-underline"></div>
+                        margin: 5% 0px 0px 0px;">Read more</div></a>
+                        <div style="width: 0px" class="footer-underline"></div>
                       </a>
                     </div>
                   </div>
@@ -26129,6 +26143,54 @@ CreativeBox is a creative agency that helps you design and launch your next proj
       crossorigin="anonymous"
     ></script>
     <script src="js/webflow.js" type="text/javascript"></script>
+    <script>
+// Function to truncate text after the ninth word and append ellipsis
+function truncateTitle(sentence) {
+    // Replace non-breaking spaces with regular spaces
+    let normalizedSentence = sentence.replace(/&nbsp;/gi, ' ');
+    let words = normalizedSentence.split(" ");
+    
+    // Modify sentence if word count exceeds 9
+    if (words.length > 8) {
+        words = words.slice(0, 8);  // Keep only the first 9 words
+        words[7] += "...";  // Append '...' to the ninth word
+    }
+
+    return words.join(" ");  // Join the words back into a modified sentence
+}
+
+$(document).ready(function() {
+    $.get("https://blog-scraper-59ac02e724dd.herokuapp.com/", function(data) {
+        // Reverse the data array if newest posts are not already first
+        data.reverse();
+
+        if (data.length > 0) {
+            // Dynamically update the first blog post if it exists
+            updateBlogPost(data[0], $('.w-dyn-items .item-preview').eq(0));
+
+            // Check if there is a second blog post and update it
+            if (data.length > 1) {
+                updateBlogPost(data[1], $('.w-dyn-items .item-preview').eq(1));
+            }
+        }
+    });
+
+    // Function to update a blog post
+    function updateBlogPost(blogData, element) {
+        // Set image and style
+        element.find('.link-preview-rounded img').attr('src', blogData.imageUrl);
+        element.find('.change-hover-image').css('background-image', `url(${blogData.imageUrl})`);
+
+        // Update title and paragraph
+        element.find('.h1.blog-title').text(truncateTitle(blogData.title));
+        element.find('.firstParagraph').text(blogData.firstParagraph);
+
+        // Update links
+        element.find('.link-preview-rounded, .preview-link, .category-link').attr('href', blogData.url);
+    }
+});
+
+    </script>
     <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   </body>
 </html>
