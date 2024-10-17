@@ -622,7 +622,7 @@ function packSpecificFunctions(
       generalPackData.mode = document.getElementById("mode").innerHTML;
       localStorage.setItem("generalPackData", JSON.stringify(generalPackData));
       window.location.href =
-        "file:///C:/Users/raffp/OneDrive/Documents/Company/CreativeBox/Website/shopping-cart/tokens.html"; // Uncomment and replace with your URL
+        "file:///C:/Users/creat/OneDrive%20-%20CreativeBox/Companies/CreativeBox/Websites/Website/shopping-cart/tokens.html"; // Uncomment and replace with your URL
     }
   }
 
