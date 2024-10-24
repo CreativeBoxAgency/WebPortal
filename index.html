@@ -3099,7 +3099,8 @@ strong {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 48px;
+  margin-top: 5px;
+  margin-bottom: 18px;
   padding: 8px 22px;
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -9015,10 +9016,13 @@ html {
         <div class="overlay-carrosel"></div>
         <h1 class="header-carrosel">AI Integration</h1>
       </div>
+      <button id="loadMore" class="button-outline w-inline-block load-more-button" style="color:#905ee6; font-family: Inter, sans-serif; display: none;">Load More</button>
     </div>
   </div>
 
   <script>
+    
+    
     const boxes = document.querySelectorAll(".box-carrosel");
     let activeIndex = 1;
     let isTransitioning = false;
@@ -9075,6 +9079,101 @@ html {
     boxes.forEach((box, index) => {
       box.addEventListener("click", () => handleBoxClick(index));
     });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      
+    const boxes = document.querySelectorAll('.box-carrosel');
+    const loadMoreButton = document.getElementById('loadMore');
+    const visibleCount = 6; // number of visible boxes
+
+    
+
+    // Initially hide all boxes after the first 6
+    boxes.forEach((box, index) => {
+        if (index >= visibleCount) {
+            box.style.display = 'none'; // Hide additional boxes
+        } else {
+            box.classList.add('closed'); // Ensure they are closed
+        }
+    });
+
+    // Show the Load More button if there are more boxes to show
+    if (boxes.length > visibleCount) {
+        loadMoreButton.style.display = 'block';
+    }
+
+
+
+    // Load more boxes when button is clicked
+    loadMoreButton.addEventListener('click', function() {
+        let hiddenBoxes = 0;
+        boxes.forEach((box) => {
+            if (box.style.display === 'none') {
+                hiddenBoxes++;
+                box.style.display = 'block'; // Show the box
+                box.classList.add('closed'); // Keep it closed
+            }
+            if (hiddenBoxes === 3) { // Show 3 more at a time
+                return; // Exit loop after showing 3 boxes
+
+                
+            }
+
+            loadMoreButton.style.display = 'none'; // Hide the button if all boxes are displayed
+        });
+
+       
+
+        function setAllBoxesClosed() {
+    const boxes = document.querySelectorAll('.box-carrosel');
+    const isMobile = window.innerWidth <= 479; // Check if the screen width is 479px or less
+
+    if (isMobile) {
+        boxes.forEach(box => {
+          box.classList.remove('expanded'); // Remove the 'expanded' class if it exists
+            box.classList.remove('closed'); // Add the 'closed' class to each box
+            
+        });
+    }
+}
+
+setAllBoxesClosed();
+
+
+    });
+
+
+    function setAllBoxesClosed() {
+    const boxes = document.querySelectorAll('.box-carrosel');
+    const isMobile = window.innerWidth <= 479; // Check if the screen width is 479px or less
+
+    if (isMobile) {
+        boxes.forEach(box => {
+          box.classList.remove('expanded'); // Remove the 'expanded' class if it exists
+            box.classList.remove('closed'); // Add the 'closed' class to each box
+            
+        });
+    }
+}
+
+setAllBoxesClosed();
+
+// Function to check if the device is mobile or tablet
+function isMobileOrTablet() {
+        return window.innerWidth <= 768; // Maximum width for mobile and tablet
+    }
+
+ if (isMobileOrTablet() == false) {
+    boxes.forEach((box, index) => {
+           box.style.display = ''; 
+        })
+    document.getElementById('loadMore').style.display ="none"; 
+    }
+
+setAllBoxesClosed();
+
+});
   </script>
 
 
